@@ -2,19 +2,20 @@
 """
 Created on Mon Aug 10 12:00:04 2020
 
+original code: Fedi at kaggle
 @author: Shin
 """
 
 # Import packages
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn import preprocessing
+#import matplotlib.pyplot as plt
+#from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
-from sklearn.model_selection import GridSearchCV
+#from sklearn.model_selection import GridSearchCV
 from lightgbm import LGBMRegressor
 from xgboost import XGBRegressor
-from sklearn.ensemble import RandomForestRegressor,  GradientBoostingRegressor
+#from sklearn.ensemble import RandomForestRegressor,  GradientBoostingRegressor
 import sklearn.metrics as metrics
 import math
 
@@ -87,8 +88,8 @@ if __name__ == '__main__':
 
     # Now the next step is to encode categorical features
     # Ordinal categories features - Mapping from 0 to N
-    bin_map  = {'TA':2,'Gd':3, 'Fa':1,'Ex':4,'Po':1,'None':0,'Y':1,'N':0,'Reg':3,'IR1':2,'IR2':1,'IR3':0,"None" : 0,
-            "No" : 2, "Mn" : 2, "Av": 3,"Gd" : 4,"Unf" : 1, "LwQ": 2, "Rec" : 3,"BLQ" : 4, "ALQ" : 5, "GLQ" : 6
+    bin_map  = {'TA':2, 'Fa':1, 'Ex':4, 'Po':1, 'None':0, 'Y':1, 'N':0, 'Reg':3, 'IR1':2, 'IR2':1, 'IR3':0
+                "No":2, "Mn":2, "Av":3, "Gd":4, "Unf":1, "LwQ":2, "Rec":3, "BLQ":4, "ALQ":5, "GLQ":6
             }
     object_columns_df['ExterQual'] = object_columns_df['ExterQual'].map(bin_map)
     object_columns_df['ExterCond'] = object_columns_df['ExterCond'].map(bin_map)
